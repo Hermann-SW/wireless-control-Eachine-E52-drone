@@ -1,6 +1,7 @@
 # wireless-control-Eachine-E52-drone
 Wireless control Eachine E52 FPV drone (via TCP replay [attack])
 
+<img align="right" src="res/Eachine_E52_FPV_drone_carries_Raspberry_Pi_ZeroW_v1_camera_cable.gif">
 Table of Contents
 * [Usage and status](#usage-and-status)
 * [Motivation](#motivation)
