@@ -34,6 +34,8 @@ Eachine E52 drone had no problems to take 14g of additional weight and fly with 
 
 Then I read article [Controlling a JJRC H37 Elfie quad from a PC by adriajunyent-ferre](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) that showed how to control E50S drone with sending a single magic word, and started to work on this project.
 
+The idea is to make Pi ZeroW the "riding on drone" pilot of E52 drone, connected only by rubber band and wifi, for fully autonomous drone flights (the RTC control one key "landing" function hopefully will avoid bad things to happen as last resort).
+
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
 #### Using Android capturing apps
@@ -58,7 +60,7 @@ Not an option since I have no supported Wifi dongle.
 
 ###### nexmon
 
-Cloned git repo and built successfully according instructions. Unfortunately bring up new monitor device stops all networking.
+Cloned git repo (because it supports Raspberry Pi 3B+ wifi module) and built successfully according instructions. Unfortunately bring up new monitor device stops all networking.
 
 ###### [Ettercap](http://www.ettercap-project.org/ettercap/)
 
