@@ -1,7 +1,8 @@
 # wireless-control-Eachine-E52-drone
 Wireless control Eachine E52 FPV drone (via TCP replay [attack])
 
-<img align="right" src="res/Eachine_E52_FPV_drone_carries_Raspberry_Pi_ZeroW_v1_camera_cable.gif">
+![Eachine E52 drone carries Raspberry Pi ZeroW](res/Eachine_E52_FPV_drone_carries_Raspberry_Pi_ZeroW_v1_camera_cable.gif)
+
 Table of Contents
 * [Usage and status](#usage-and-status)
 * [Motivation](#motivation)
@@ -35,8 +36,7 @@ Compile with gcc (I use -Wall and -pedantic flags as well). Currently only captu
 
 ## Motivation
 
-Eachine E52 drone had no problems to take 14g of additional weight and fly with Raspberry Pi ZeroW on top:
-![Eachine E52 drone carries Raspberry Pi ZeroW](res/Eachine_E52_FPV_drone_carries_Raspberry_Pi_ZeroW_v1_camera_cable.gif)
+Eachine E52 drone had no problems to take 14g of additional weight and fly with Raspberry Pi ZeroW on top, see animated .gif above.
 
 Then I read article [Controlling a JJRC H37 Elfie quad from a PC by adriajunyent-ferre](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) that showed how to control E50S drone with sending a single magic word, and started to work on this project.
 
