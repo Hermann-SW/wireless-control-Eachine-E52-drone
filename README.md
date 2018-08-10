@@ -12,7 +12,7 @@ Table of Contents
 
 [pull_video.c](pull_video.c) does replay a TCP packet capture against E52 drone and captures drone camera h264 video stream. It is self contained (inclusive 4508 bytes of TCP requests and responses), creates 6 TCP connections (2 against stealth ports), sends 19 packets over 3 of the TCP connections and then receives the h264 video.
 
-Unlike pull_video.py from the article that motivated this project, I did write C program because of 30 years experience in C and not having worked much with Python. It is not nice code but does what it is intended to do. Assumptions get asserted, as well as comparisons of TCP responses with corresponding responses from packet capture. BLK(S,I) sends packet I of TCP stream S, receives response and compares against packet I+1. Opening a connection against stealth port with connect hangs because no "SYN ACK" gets returned. I use fork() do deal with that.
+Unlike pull_video.py from the article that motivated this project, I did write C program because of 30 years experience in C and not having worked much with Python. It is not nice code but does what it is intended to do. Assumptions get asserted, as well as comparisons of TCP responses with corresponding responses from packet capture. BLK(S,I) sends packet I of TCP stream S, receives response and compares against packet I+1. Opening a connection against stealth port with connect hangs because no "SYN ACK" gets returned. I use fork() to deal with that.
 
 Compile with gcc (I use -Wall and -pedantic flags as well). Currently only capturing drone video is implemented, and that stops either on CTRL-C or after slightly more than 10 seconds (will be fixed later).
 
