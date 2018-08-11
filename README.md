@@ -10,7 +10,7 @@ Table of Contents
 * [Motivation](#motivation)
 * [Capturing wireless traffic between Android UFO app and E52 drone](#capturing-wireless-traffic-between-android-ufo-app-and-e52-drone)
 
-## Usage and status
+## Usage
 
 [pull_video.c](pull_video.c) does replay a TCP packet capture against E52 drone and captures drone camera h264 video stream. It is self contained (inclusive 4508 bytes of TCP requests and responses), creates 6 TCP connections (2 against stealth ports), sends 19 packets over 3 of the TCP connections and then receives the h264 video.
 
