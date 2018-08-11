@@ -17,6 +17,7 @@ Table of Contents
 Unlike [pull_video.py](https://cdn.hackaday.io/files/19680841989120/pull_video.py) from the [article](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) that motivated this project, I did write C program because of 30 years experience in C and not having worked much with Python. It is not nice code but does what it is intended to do. Assumptions get asserted, as well as comparisons of TCP responses with corresponding responses from packet capture. BLK(S,I) sends packet I of TCP stream S, receives response and compares against packet I+1 (even numbers are requests, odd numbers are responses). Opening a connection against stealth port with connect() hangs because no "SYN ACK" gets returned; I use fork() to deal with that.
 
 Just compile with gcc:
+
 	$ gcc -Wall -pedantic pull_video.c -o pull_video
 	$ ./pull_video > out.h264
 	con(172.16.10.1:8888)
