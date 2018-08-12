@@ -87,6 +87,10 @@ Drone camera records 720x576 (h264) video at 25fps, as demonstrated by [video_fr
 	sys	0m0.324s
 	$
 
+The command was executed on a Raspberry Pi 3B+, and uses around 50% CPU on one of its cores.
+
+video_framerate.sh on target platform (see Motivation), single core Pi ZeroW, shows around 15 fps (only), at 86-90% CPU. So regardless what video processing is done, Pi ZeroW can process 15 fps at most, most likely even less. 
+
 ## Motivation
 
 Eachine E52 drone had no problems to take 14g of additional weight and fly with Raspberry Pi ZeroW on top, see animated .gif above.
