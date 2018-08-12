@@ -87,9 +87,9 @@ Drone camera records 720x576 (h264) video at 25fps, as demonstrated by [video_fr
 	sys	0m0.324s
 	$
 
-The command was executed on a Raspberry Pi 3B+, and uses around 50% CPU on one of its cores.
+The command was executed on a Raspberry Pi 3B+, and uses around 50% CPU on one of its cores, after change of avdec_h264 to hardware accelerated omxh264dec only 13% CPU.
 
-video_framerate.sh on target platform (see Motivation), single core Pi ZeroW, shows around 15 fps (only), at 86-90% CPU. So regardless what video processing is done, Pi ZeroW can process 15 fps at most, most likely even less. 
+video_framerate.sh on target platform (see Motivation), single core Pi ZeroW, shows 25 fps as well (after switch to omxh264dec), at 18% CPU. This should leave enough CPU cycles for video frame analysis and drone control. 
 
 Just capturing drone camera video (pull_video) without gstreamer h264 parse+decode does take 2% CPU only on Pi ZeroW.
 
