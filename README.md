@@ -91,6 +91,8 @@ The command was executed on a Raspberry Pi 3B+, and uses around 50% CPU on one o
 
 video_framerate.sh on target platform (see Motivation), single core Pi ZeroW, shows around 15 fps (only), at 86-90% CPU. So regardless what video processing is done, Pi ZeroW can process 15 fps at most, most likely even less. 
 
+Just capturing drone camera video (pull_video) without gstreamer h264 parse+decode does take 2% CPU only on Pi ZeroW.
+
 ## Motivation
 
 Eachine E52 drone had no problems to take 14g of additional weight and fly with Raspberry Pi ZeroW on top, see animated .gif above.
