@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -n "$1" ];
 then
-  src="raspivid -n -t 0 -md 4 -w 640 -h 480 -o -"
+  src="raspivid -n -t 0 -md 6 -w 640 -h 480 -o -"
 else
   src="./pull_video"
 fi
