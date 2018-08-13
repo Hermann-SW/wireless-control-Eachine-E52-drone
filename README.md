@@ -93,6 +93,9 @@ video_framerate.sh on target platform (see Motivation), single core Pi ZeroW, sh
 
 Just capturing drone camera video (pull_video) without gstreamer h264 parse+decode does take 2% CPU only on Pi ZeroW.
 
+
+[watch_video.sh](watch_video.sh) tool displays live video. Without argument the h264 drone video stream from pull_video is used, otherwise raspivid is the h264 video source. Display performance is good because h264 decoding is fast by hardware accelerated omxh264dec, and direct output to /dev/fb0 frame buffer (works for X11 display as well). Removing comment before $gray8 definition results in 720x576 8bit gray video, instead of 12bit [i420 yuv pixel format](https://www.fourcc.org/pixel-format/yuv-i420/) video.
+
 ## Motivation
 
 Eachine E52 drone had no problems to take 14g of additional weight and fly with Raspberry Pi ZeroW on top, see animated .gif above.
