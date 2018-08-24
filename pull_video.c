@@ -7,19 +7,25 @@
 #include<assert.h>
 #include<sys/types.h>
 #include<signal.h>
+#include<errno.h>
+#include<netdb.h>
+#include<netinet/tcp.h>
+#include<netinet/ip.h>
+#include<sys/ioctl.h>
+#include<netinet/in.h>
+#include<net/if.h>
 
 int l0[34],o0[34]; char s0[4084];
 int l1[ 2],o1[ 2]; char s1[ 212];
 int l5[ 2],o5[ 2]; char s5[ 212];
 int pid3=0, pid4=0;
 
+void syn(char *ip, int port);
 int  con(char *ip, int port);
 void snd(int sd, char *buf, int len);
 int  rcv(int sd, char *buf, int len);
 
-void kill_pids();
 void sig_handler(int signo);
-void forever(int port);
 
 #define B(S,I)    s##S+o##S[I]
 #define L(S,I)    l##S[I]
@@ -50,11 +56,8 @@ int main(int argc , char *argv[])
     BLK(0,14); BLK(0,16); BLK(0,18); BLK(0,20); BLK(0,22); BLK(0,24);
 
     SEND(0,26);
-        assert( (pid3 = fork()) >= 0 );
-        if (pid3==0) { sd3 = con("192.168.0.1", 7060); forever(7060); }
-
-        assert( (pid4 = fork()) >= 0 );
-        if (pid4==0) { sd4 = con("192.168.0.1", 8060); forever(8060); }
+        syn("192.168.0.1", 7060);
+        syn("192.168.0.1", 8060);
     BLKR(0,26);
 
     BLK(0,28); BLK(0,30); BLK(0,32);
@@ -76,32 +79,16 @@ int main(int argc , char *argv[])
 
     len=sd2+sd3+sd4;  // -Wall
 
-    kill_pids();
-
     return 0;
 }
 
-void kill_pids()
-{
-    if ((pid3==0) && (pid4==0))  return;
-    if (pid3)  { kill(pid3, SIGKILL); pid3=0; }
-    if (pid4)  { kill(pid4, SIGKILL); pid4=0; }
-    fprintf(stderr, "\nchild processes killed\n");
-}
 
 void sig_handler(int signo)
 {
     if (signo == SIGINT)
     {
-        kill_pids();
         exit(0);
     }
-}
-
-void forever(int port)
-{
-    fprintf(stderr, "\nchild process (port %d) connect ended\n", port);
-    for(;;) sleep(1);
 }
 
 void snd(int sd, char *buf, int len)
@@ -134,6 +121,149 @@ int con(char *ip, int port)
     return sd;
 }
 
+/*
+ * csum and syn (modified main) from:
+ * https://www.binarytides.com/tcp-syn-portscan-in-c-with-linux-sockets/
+ */
+unsigned short csum(unsigned short * , int );
+uint32_t gip(char *ifs);
+
+struct pseudo_header
+{
+    unsigned int source_address;
+    unsigned int dest_address;
+    unsigned char placeholder;
+    unsigned char protocol;
+    unsigned short tcp_length;
+
+    struct tcphdr tcp;
+};
+
+// send a single SYN packet, ignore response (if any)
+void syn(char *target, int port)
+{
+    struct in_addr dest_ip;
+    char *ifs ="wlan0";
+
+    //Create a raw socket
+    int s = socket (AF_INET, SOCK_RAW , IPPROTO_TCP);
+    assert(s >= 0);
+
+    //Datagram to represent the packet
+    char datagram[4096];
+
+    //IP header
+    struct iphdr *iph = (struct iphdr *) datagram;
+
+    //TCP header
+    struct tcphdr *tcph = (struct tcphdr *) (datagram + sizeof (struct ip));
+
+    struct sockaddr_in  dest;
+    struct pseudo_header psh;
+
+    assert( inet_addr( target ) != -1);
+    dest_ip.s_addr = inet_addr( target );
+
+    int source_port = 43591;
+
+    memset (datagram, 0, 4096); /* zero out the buffer */
+
+    //Fill in the IP Header
+    iph->ihl = 5;
+    iph->version = 4;
+    iph->tos = 0;
+    iph->tot_len = sizeof (struct ip) + sizeof (struct tcphdr);
+    iph->id = htons (54321); //Id of this packet
+    iph->frag_off = htons(16384);
+    iph->ttl = 64;
+    iph->protocol = IPPROTO_TCP;
+    iph->check = 0;      //Set to 0 before calculating checksum
+    iph->saddr = gip(ifs); 
+    iph->daddr = dest_ip.s_addr;
+
+    iph->check = csum ((unsigned short *) datagram, iph->tot_len >> 1);
+
+    //TCP Header
+    tcph->source = htons ( source_port );
+    tcph->dest = htons (80);
+    tcph->seq = htonl(1105024978);
+    tcph->ack_seq = 0;
+    tcph->doff = sizeof(struct tcphdr) / 4;      //Size of tcp header
+    tcph->fin=0;
+    tcph->syn=1;
+    tcph->rst=0;
+    tcph->psh=0;
+    tcph->ack=0;
+    tcph->urg=0;
+    tcph->window = htons ( 14600 );  // maximum allowed window size
+    tcph->check = 0; //if you set a checksum to zero, your kernel's IP stack should fill in the correct checksum during transmission
+    tcph->urg_ptr = 0;
+
+    //IP_HDRINCL to tell the kernel that headers are included in the packet
+    int one = 1;
+    const int *val = &one;
+
+    assert (setsockopt (s, IPPROTO_IP, IP_HDRINCL, val, sizeof (one)) >= 0);
+
+    dest.sin_family = AF_INET;
+    dest.sin_addr.s_addr = dest_ip.s_addr;
+
+    tcph->dest = htons ( port );
+    tcph->check = 0; // if you set a checksum to zero, your kernel's IP stack should fill in the correct checksum during transmission
+
+    psh.source_address = gip(ifs);
+    psh.dest_address = dest.sin_addr.s_addr;
+    psh.placeholder = 0;
+    psh.protocol = IPPROTO_TCP;
+    psh.tcp_length = htons( sizeof(struct tcphdr) );
+
+    memcpy(&psh.tcp , tcph , sizeof (struct tcphdr));
+
+    tcph->check = csum( (unsigned short*) &psh , sizeof (struct pseudo_header));
+
+    fprintf(stderr, "syn(%s:%d)\n", target, port);
+
+    assert ( sendto (s, datagram , sizeof(struct iphdr) + sizeof(struct tcphdr) , 0 , (struct sockaddr *) &dest, sizeof (dest)) >= 0);
+}
+
+unsigned short csum(unsigned short *ptr,int nbytes) 
+{
+    register long sum;
+    unsigned short oddbyte;
+    register short answer;
+
+    sum=0;
+    while(nbytes>1) {
+        sum+=*ptr++;
+        nbytes-=2;
+    }
+    if(nbytes==1) {
+        oddbyte=0;
+        *((u_char*)&oddbyte)=*(u_char*)ptr;
+        sum+=oddbyte;
+    }
+
+    sum = (sum>>16)+(sum & 0xffff);
+    sum = sum + (sum>>16);
+    answer=(short)~sum;
+
+    return(answer);
+}
+
+uint32_t gip(char *ifs)
+{
+  int fd;
+  struct ifreq ifr;
+
+  fd = socket(AF_INET, SOCK_DGRAM, 0);
+  ifr.ifr_addr.sa_family = AF_INET;
+  strncpy(ifr.ifr_name, ifs, IFNAMSIZ-1);
+
+  ioctl(fd, SIOCGIFADDR, &ifr);
+  close(fd);
+
+  return (((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr).s_addr;
+}
 
 int l0[34]={
  106,106,106,106,106,170,106,106,106,122,106,106,106,122,106,106,106,122
