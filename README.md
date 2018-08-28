@@ -119,6 +119,8 @@ Then I read article [Controlling a JJRC H37 Elfie quad from a PC by adriajunyent
 
 The idea is to make Pi ZeroW the "riding on drone" pilot of E52 drone, connected only by rubber band and wifi, for fully autonomous drone flights (the RTC control one key "landing" function hopefully will avoid bad things to happen as last resort).
 
+I did order 3$ VL53L0X laser ranging sensors in China. While drone has built in "altitude hold" mode, such sensor attached to Pi ZeroW will allow for "altitude above ground hold" mode. That mode will allow for fast (manual) drone flights in constant height (1m ?) above uneven terrain.
+
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
 #### Using Android capturing apps
