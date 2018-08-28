@@ -36,6 +36,8 @@ Just compile with gcc:
 This 720x576 frame from that first video is displayed scaled down by factor 3:<br>
 <img src="res/E52.1st.pull.h264.frame.png" width=240 height=192>
 
+For tools [video_framerate.sh](video_framerate.sh) and [watch_video.sh](watch_video.sh) see [Video facts](#video-facts).
+
 ## Implementation details
 
 [pull_video.c](pull_video.c) does replay a TCP packet capture (captured with [Ettercap+Wireshark](#capturing-wireless-traffic-between-android-ufo-app-and-e52-drone)) against E52 drone and captures drone camera h264 video stream. It is self contained (inclusive 4508 bytes of TCP requests and responses), creates 6 TCP connections (2 against stealth ports), sends 19 packets over 3 of the TCP connections and then receives the h264 video.
