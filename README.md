@@ -48,6 +48,8 @@ I bought a second E52 drone as backup (again for <20$ in super sale) and noticed
 
 Currently only capturing drone video is implemented, and that stops either on CTRL-C or after slightly more than 10 seconds (will be fixed later).
 
+[Actively working](https://twitter.com/HermannSW/status/1033828552582615042) on unlocking newer E52 drone firmware for making pull_video.c capture video regardless of firmware version (firmware version can be determined by inspecting IP returned by gip("wlan0") starts with 172 or 192).
+
 Equivalent of send_joystick.py from the motivation [article](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) is missing (controls the quadcopter from a USB gamepad).
 
 ## Video facts
