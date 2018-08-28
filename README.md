@@ -31,7 +31,8 @@ Just compile with gcc:
  
 172.16.10.1 is IP of drone AP, 192.168.0.1 is another drone IP. 172.16.10.2 is Raspberry Pi IP.
 
-[E52.1st.pull.h264](res/E52.1st.pull.h264) is first successfully captured short video (inside vacation house).
+[E52.1st.pull.h264](res/E52.1st.pull.h264) is first successfully captured short video (inside vacation house). This 720x576 frame from that first video is displayed scaled down by factor 3:<br>
+<img src="res/E52.1st.pull.h264" width=240 height=192>
 
 ## Implementation details
 
