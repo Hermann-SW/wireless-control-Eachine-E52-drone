@@ -130,7 +130,7 @@ E52 drone with vertical camera found lost (white) drone 10m high in group of tre
 
 #### maximal backpack weight
 
-As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14g of additional weight. Maximal backpack weight that works is 18.5g:<br>
+As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14g of additional weight. Maximal backpack weight that works is 18.5g (0.6g rubber band + plastic box + 3 Lego bricks):<br>
 <img src="res/IMG_300818_192736.jpg" width=432 height=324>
 
 ## Capturing wireless traffic between Android UFO app and E52 drone
