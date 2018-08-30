@@ -117,12 +117,12 @@ I did order 3$ VL53L0X laser ranging sensors in China. While drone has built in 
 ## E52 mods
 
 Screwing off just 5 screws opens E52 drone:<br>
+(right click images for full size view in new tab):<br>
 <img src="res/IMG_130718_174656.jpg" with=512 height=300/>
 
 #### vertical camera
 
 Dremel away some plastic allows for vertical camera:<br>
-(right click images for full size view in new tab):
 <img src="res/IMG_130718_181251.down.jpg" with=432 height=324>
 
 E52 drone with vertical camera found lost (white) drone 10m high in group of trees:<br>
