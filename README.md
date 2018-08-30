@@ -128,9 +128,14 @@ Dremel away some plastic allows for vertical camera:<br>
 E52 drone with vertical camera found lost (white) drone 10m high in group of trees:<br>
 <img src="res/Seems_E52_drone_found_lost_drone_on_high_tree_near_stable.gif">
 
+#### Raspberry Pi ZeroW riding E52 drone
+
+As described in Motivation, Raspberry Pi ZeroW can ride E52 drone. Rubber band weight is 0.6g, Pi ZeroW 11.5g (with Pi ZeroW pulling video from drone camera, Raspberry camera is not be needed). Planned small 150mAh 30C lipo weight is 5.2g (for Pi ZeroW). Together that is 17.3g backpack weight. Pi ZeroW is connected with drone only by rubber band and wireless.<br>
+<img src="res/E52_plus_Pi_ZeroW.png" width=442 height=406>
+
 #### maximal backpack weight
 
-As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14g of additional weight. Maximal backpack weight that works is 18.5g (0.6g rubber band + plastic box + 3 Lego bricks):<br>
+As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14.6g of additional weight. Maximal backpack weight that works is 18.5g (0.6g rubber band + plastic box + 3 Lego bricks, adding a 4th 1.2g Lego brick does not fly):<br>
 <img src="res/IMG_300818_192736.jpg" width=432 height=324>
 
 ## Capturing wireless traffic between Android UFO app and E52 drone
