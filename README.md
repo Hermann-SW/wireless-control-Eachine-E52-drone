@@ -6,7 +6,7 @@ Wireless control Eachine E52 FPV drone (via TCP replay [attack])
 Table of Contents
 * [Usage](#usage)
 * [Implementation details](#implementation-details)
-* [Status](#status)
+* ~~[Status](#status)~~ see Issues
 * [Video facts](#video-facts)
 * [Motivation](#motivation)
 * [Capturing wireless traffic between Android UFO app and E52 drone](#capturing-wireless-traffic-between-android-ufo-app-and-e52-drone)
@@ -45,14 +45,6 @@ For tools [video_framerate.sh](video_framerate.sh) and [watch_video.sh](watch_vi
 Unlike [pull_video.py](https://cdn.hackaday.io/files/19680841989120/pull_video.py) from the [article](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) that motivated this project, I did write C program because of 30 years experience in C and not having worked much with Python. It is not nice code but does what it is intended to do. Assumptions get asserted, as well as comparisons of TCP responses with corresponding responses from packet capture. BLK(S,I) sends packet I of TCP stream S, receives response and compares against packet I+1 (even numbers are requests, odd numbers are responses). Opening a connection against stealth port with connect() hangs because no "SYN ACK" gets returned; ~~I use fork() to deal with that.~~ sending a single (hand crafted) SYN packet (and do not deal with a response in case there is one) allows for single threaded operation of pull_video.
 
 I bought a second E52 drone as backup (again for <20$ in super sale) and noticed it has a different firmware. The use of the two drone IP addresses is switched, and most importantly, the drone video is delivered via UDP on newer firmware contrary via TCP as on first drone and what is implemented in pull_video.c currently.
-
-## Status
-
-Currently only capturing drone video is implemented, and that stops either on CTRL-C or after slightly more than 10 seconds (will be fixed later).
-
-[Actively working](https://twitter.com/HermannSW/status/1033828552582615042) on unlocking newer E52 drone firmware for making pull_video.c capture video regardless of firmware version (firmware version can be determined by inspecting IP returned by gip("wlan0") starts with 172 or 192).
-
-Equivalent of send_joystick.py from the motivation [article](https://hackaday.io/project/19680-controlling-a-jjrc-h37-elfie-quad-from-a-pc) is missing (controls the quadcopter from a USB gamepad).
 
 ## Video facts
 
