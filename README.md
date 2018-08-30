@@ -118,7 +118,7 @@ I did order 3$ VL53L0X laser ranging sensors in China. While drone has built in 
 
 Screwing off just 5 screws opens E52 drone:<br>
 (right click images for full size view in new tab):<br>
-<img src="res/IMG_130718_174656.jpg" with=512 height=300/>
+<img src="res/IMG_130718_174656.jpg" with=432 height=324/>
 
 #### vertical camera
 
@@ -127,6 +127,11 @@ Dremel away some plastic allows for vertical camera:<br>
 
 E52 drone with vertical camera found lost (white) drone 10m high in group of trees:<br>
 <img src="res/Seems_E52_drone_found_lost_drone_on_high_tree_near_stable.gif">
+
+#### maximal backpack weight
+
+As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14g of additional weight. Maximal backpack weight that works is 18.5g:<br>
+<img src="res/IMG_300818_192736.jpg" width=432 height=324>
 
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
