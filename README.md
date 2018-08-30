@@ -121,7 +121,8 @@ Screwing off just 5 screws opens E52 drone:<br>
 
 #### vertical camera
 
-Dreml away some plastic allows for vertical camera:<br>
+Dremel away some plastic allows for vertical camera:<br>
+(right click images for full size view in new tab):
 <img src="res/IMG_130718_181251.down.jpg" with=432 height=324>
 
 E52 drone with vertical camera found lost (white) drone 10m high in group of trees:<br>
