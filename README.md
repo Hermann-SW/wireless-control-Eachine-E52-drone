@@ -138,6 +138,11 @@ As described in Motivation, Raspberry Pi ZeroW can ride E52 drone. Rubber band w
 As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone easily flew with 14.6g of additional weight. Maximal backpack weight that works is 18.5g (0.6g rubber band + plastic box + 3 Lego bricks, adding a 4th 1.2g Lego brick does not fly):<br>
 <img src="res/IMG_300818_192736.jpg" width=432 height=324>
 
+#### drone weight reduction
+
+I am constructing a bomb drop servo release mechanism, and that does weigh at least (ESP-01 1.5g + SG37 servo 5.3g + 150mAh 30C lipo 5.2g) 12g in total. That restricts maximal "bomb" weight to 6.5g; removing the (12.6g) E52 Drone bodyshell upper cover and replacing with two small but stiff wooden bars reduces drone weight by 6.0g, resulting in 12.5g that can be dropped (to rescue the white drone found on 10m high tree). 4 of the 5 screws through propeller gear shafts into the wooden bars give structural integrity. Yes, flying drone completely open is more dangerous, but will be done only for real rescue  flights (short test flight was fine):<br>
+<img src="res/IMG_010918_160956.jpg" width=432 height=324>
+
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
 #### Using Android capturing apps
