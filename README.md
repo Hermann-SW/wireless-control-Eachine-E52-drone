@@ -151,8 +151,8 @@ I am constructing a bomb drop servo release mechanism, and that does weigh at le
 
 #### ESP-01s bomb drop servo mechanism
 
-I will try to rescue the lost drone hanging 10m high in tree (see [vertical camera](#vertical-camera) section animation) with a servo bomb drop mechanism attached to E52 drone. Because weight is of the essence for this, a 1.5g ESP-01s microcontroller is used instead of a Pi ZeroW. The ESP-01s has Wifi as well and runs Micropython. This is work in progress, functional ESP+lipo+servo+voltage regulator details here:
-[https://www.esp8266.com/viewtopic.php?f=15&t=18515](https://www.esp8266.com/viewtopic.php?f=15&t=18515]<br>
+I will try to rescue the lost drone hanging 10m high in tree (see [vertical camera](#vertical-camera) section animation) with a servo bomb drop mechanism attached to E52 drone. Because weight is of the essence for this, a 1.5g ESP-01s microcontroller is used instead of a Pi ZeroW. The ESP-01s has Wifi as well and runs Micropython. This is work in progress, functional ESP+lipo+servo+voltage regulator details here:<br>
+<a href="https://www.esp8266.com/viewtopic.php?f=15&t=18515">https://www.esp8266.com/viewtopic.php?f=15&t=18515</a><br>
 <img src="res/ESP-01s_bomb_drop_servo.a.png"/>
 
 The flying ESP-01s MicroPython will be controlled via remote console [WebREPL shell](https://github.com/Hermann-SW/webrepl) from mobile Raspberry Pi ZeroW on the ground:<br>
