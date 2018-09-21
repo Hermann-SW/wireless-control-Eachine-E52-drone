@@ -155,7 +155,7 @@ I will try to rescue the lost drone hanging 10m high in tree (see [vertical came
 [https://www.esp8266.com/viewtopic.php?f=15&t=18515](https://www.esp8266.com/viewtopic.php?f=15&t=18515]<br>
 <img src="res/ESP-01s_bomb_drop_servo.a.png"/>
 
-The flying ESP-01s MicroPython will be controlled via remote console [WebREPL shell](https://github.com/Hermann-SW/webrepl) from mobile Raspberry Pi ZeroW on the ground:
+The flying ESP-01s MicroPython will be controlled via remote console [WebREPL shell](https://github.com/Hermann-SW/webrepl) from mobile Raspberry Pi ZeroW on the ground:<br>
 <img src="res/Mobile.Pi.jpg" width=631 height=271/>
 
 ## Capturing wireless traffic between Android UFO app and E52 drone
