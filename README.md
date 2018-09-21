@@ -116,6 +116,12 @@ I did order 3$ VL53L0X laser ranging sensors in China. While drone has built in 
 
 ## E52 mods
 
+* [vertical camera](#vertical-camera)
+* [Raspberry Pi ZeroW riding E52 drone](#raspberry-pi-zerow-riding-e52-drone)
+* [maximal backpack weight](#maximal-backpack-weight)
+* [drone weight reduction](#drone-weight-reduction)
+* [ESP-01s bomb drop servo mechanism](#esp-01s-bomb-drop-servo-mechanism)
+
 Screwing off just 5 screws opens E52 drone:<br>
 (right click images for full size view in new tab):<br>
 <img src="res/IMG_130718_174656.jpg" with=432 height=324/>
@@ -142,6 +148,15 @@ As seen in top animated .gif and stated in Motivation section, 86.5g E52 drone e
 
 I am constructing a bomb drop servo release mechanism, and that does weigh at least (ESP-01 1.5g + SG37 servo 5.3g + 150mAh 30C lipo 5.2g) 12g in total. That restricts maximal "bomb" weight to 6.5g; removing the (12.6g) E52 Drone bodyshell upper cover and replacing with two small but stiff wooden bars reduces drone weight by 6.0g, resulting in 12.5g that can be dropped (to rescue the white drone found on 10m high tree). 4 of the 5 screws through propeller gear shafts into the wooden bars give structural integrity. Yes, flying drone completely open is more dangerous, but will be done only for real rescue  flights (short test flight was fine):<br>
 <img src="res/IMG_010918_160956.jpg" width=432 height=324>
+
+#### ESP-01s bomb drop servo mechanism
+
+I will try to rescue the lost drone hanging 10m high in tree (see [vertical camera](#vertical-camera) section animation) with a servo bomb drop mechanism attached to E52 drone. Because weight is of the essence for this, a 1.5g ESP-01s microcontroller is used instead of a Pi ZeroW. The ESP-01s has Wifi as well and runs Micropython. This is work in progress, functional ESP+lipo+servo+voltage regulator details here:
+[https://www.esp8266.com/viewtopic.php?f=15&t=18515](https://www.esp8266.com/viewtopic.php?f=15&t=18515]<br>
+<img src="res/ESP-01s_bomb_drop_servo.a.png"/>
+
+The flying ESP-01s MicroPython will be controlled via remote console [WebREPL shell](https://github.com/Hermann-SW/webrepl) from mobile Raspberry Pi ZeroW on the ground:
+<img src="res/Mobile.Pi.jpg" width=631 height=271/>
 
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
