@@ -158,6 +158,9 @@ I will try to rescue the lost drone hanging 10m high in tree (see [vertical came
 The flying ESP-01s MicroPython will be controlled via remote console [WebREPL shell](https://github.com/Hermann-SW/webrepl) from mobile Raspberry Pi ZeroW on the ground:<br>
 <img src="res/Mobile.Pi.jpg" width=631 height=271/>
 
+This is 180fps slowmo of bomb drop with 2.8g payload, played 14.4 times slower than real:<br>
+<img src="res/slowmo_2_ESP01s_lipo_stepdown_servo_wireless_bomb_drop_mechanism.gif"/>
+
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
 #### Using Android capturing apps
