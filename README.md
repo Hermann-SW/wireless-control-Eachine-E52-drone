@@ -161,6 +161,14 @@ The flying ESP-01s MicroPython will be controlled via remote console [WebREPL sh
 This is 180fps slowmo of payload drop with 2.8g payload, played 14.4 times slower than real:<br>
 <img src="res/slowmo_2_ESP01s_lipo_stepdown_servo_wireless_payload_drop_mechanism.gif"/>
 
+At least I do not have 3rd hand needed to use mobile Pi wireless keyboard (two hands needed for two sticks). The ESP01s MicroPython attached to drone can be controlled from ESP01s attached to drone transmitter:
+[https://www.esp8266.com/viewtopic.php?f=15&t=18515&start=12#p78520](https://www.esp8266.com/viewtopic.php?f=15&t=18515&start=12#p78520)<br>
+<img width=src="res/IMG_081018_235514.jpg" width=432>
+
+More on remote payload drop in [this forum posting](https://www.esp8266.com/viewtopic.php?f=15&t=18515&start=20#p78604):<br>
+<img src="payload.overlay.crop.gif">
+
+
 ## Capturing wireless traffic between Android UFO app and E52 drone
 
 #### Using Android capturing apps
